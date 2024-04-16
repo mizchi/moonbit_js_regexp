@@ -1,8 +1,1 @@
-{
-  "name": "lib",
-  "link": {
-    "wasm-gc": {
-      "exports": ["run"]
-    }
-  }
-}
+{}

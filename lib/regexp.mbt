@@ -65,11 +65,11 @@ fn js_regexp_take_output() -> Int = "js_regexp" "take_output"
 
 fn js_regexp_exec(id : Int) = "js_regexp" "exec"
 
-struct JsRegExp {
+pub struct JsRegExp {
   id : Int
 }
 
-fn JsRegExp::new(pattern : String, ~flags : String = "") -> JsRegExp {
+pub fn JsRegExp::new(pattern : String, ~flags : String = "") -> JsRegExp {
   let id = js_regexp_new()
   for i = 0; i < pattern.length(); i = i + 1 {
     js_regexp_write_pattern(id, pattern[i].to_int())
@@ -81,7 +81,7 @@ fn JsRegExp::new(pattern : String, ~flags : String = "") -> JsRegExp {
   return JsRegExp::{ id, }
 }
 
-fn exec(self : JsRegExp, text : String) -> Option[Array[String]] {
+pub fn exec(self : JsRegExp, text : String) -> Option[Array[String]] {
   js_regexp_reset()
   for i = 0; i < text.length(); i = i + 1 {
     js_regexp_write_input(text[i].to_int())
@@ -116,12 +116,4 @@ fn exec(self : JsRegExp, text : String) -> Option[Array[String]] {
     items.push(current)
   }
   Some(items.to_list().to_array())
-}
-
-pub fn run() -> Unit {
-  let re = JsRegExp::new("(\\w)(\\d+)")
-  let result = re.exec("H111")
-  println("exec: \(result)")
-  let result2 = re.exec("nop")
-  println("exec2: \(result2)")
 }
