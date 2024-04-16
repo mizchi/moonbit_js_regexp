@@ -1,4 +1,4 @@
-# mizchi/js-regexp
+# mizchi/js_regexp
 
 JS RegExp Binding on moonbit
 
@@ -34,7 +34,7 @@ Use it with `$ moon build --target wasm-gc`
 ```rust
 // main/main.mbt
 fn main {
-  let re = @js_regexp.JsRegExp::new("(\\w)(\\d+)", flags="im")
+  let re = @js_regexp.new("(\\w)(\\d+)", flags="im")
   let result1 = re.exec("H111")
   println("exec1: \(result1)") // Some([H111, H, 111])
   let result2 = re.exec("nop")
