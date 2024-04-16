@@ -6,6 +6,16 @@ JS RegExp Binding on moonbit
 $ moon add mizchi/js_regexp
 ```
 
+moon.pkg.json
+
+```json
+{
+  "import": [
+    "mizchi/js_regexp"
+  ]
+}
+```
+
 ## Examples
 
 include [js_regexp.js](./js_regexp.js) and [js_string.js](./js_string.js) to importObject
